@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Northstar Outdoors Cookiebot / Usercentrics CMP proof of concept" />
+  <title>Northstar Outdoors — consent lab</title>
+  <!-- Cookiebot: replace YOUR_DOMAIN_GROUP_ID with the Domain Group ID from the Cookiebot manager. -->
+  <!-- Production example (keep disabled in this local POC until configured):
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="YOUR_DOMAIN_GROUP_ID" data-blockingmode="auto" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="demo-strip"><span class="pulse"></span> LOCAL CONSENT LAB <span>Dummy integrations only · no vendor data leaves this browser</span></div>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Northstar Outdoors home"><span class="brand-mark">✦</span><span>northstar<span class="brand-soft">/outdoors</span></span></a>
+    <nav aria-label="Primary navigation">
+      <a href="#home">Explore</a><a href="#journal">Journal</a><a href="#account">Account</a>
+    </nav>
+    <button class="icon-button" data-open-preferences aria-label="Open cookie preferences">☷ <span>Privacy</span></button>
+  </header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <footer class="site-footer"><div><div class="brand footer-brand"><span class="brand-mark">✦</span><span>northstar<span class="brand-soft">/outdoors</span></span></div><p>Field notes for a life outside.</p></div><div><b>POC navigation</b><a href="#inventory">Cookie inventory</a><a href="#qa">QA test plan</a></div><div><b>Consent controls</b><button class="text-button" data-open-preferences>Manage preferences</button><button class="text-button" data-withdraw>Withdraw consent</button></div></footer>
+
+  <div class="consent-backdrop" id="consent-backdrop" hidden></div>
+  <section class="consent-banner" id="consent-banner" role="dialog" aria-labelledby="consent-title" hidden>
+    <div><p class="eyebrow">YOUR PRIVACY, YOUR CHOICE</p><h2 id="consent-title">A better trail starts with a clear choice.</h2><p>We use necessary cookies to make Northstar work. With your permission, dummy analytics, personalization, and advertising integrations help us demonstrate a complete CMP setup.</p><p class="microcopy">This POC never contacts real analytics or ad vendors.</p></div>
+    <div class="banner-actions"><button class="button button-ghost" data-open-preferences>Customize</button><button class="button button-quiet" data-consent="reject">Reject optional</button><button class="button button-primary" data-consent="all">Accept all</button></div>
+  </section>
+
+  <dialog id="preferences" aria-labelledby="preferences-title"><div class="dialog-head"><div><p class="eyebrow">CONSENT CENTER</p><h2 id="preferences-title">Choose what travels with you</h2></div><button class="close-button" data-close-preferences aria-label="Close">×</button></div><p class="dialog-intro">Necessary cookies are always on. Select optional categories to enable their dummy integrations for this browser.</p><div class="preference-list">
+    <label class="preference-row"><span><b>Necessary</b><small>Security, session continuity, and consent storage.</small></span><input type="checkbox" checked disabled><i>Always on</i></label>
+    <label class="preference-row"><span><b>Preferences</b><small>Language, region, and experience experiments.</small></span><input type="checkbox" data-category="preferences"><i>Optional</i></label>
+    <label class="preference-row"><span><b>Statistics</b><small>Anonymous product usage and performance signals.</small></span><input type="checkbox" data-category="statistics"><i>Optional</i></label>
+    <label class="preference-row"><span><b>Marketing</b><small>Dummy campaign attribution and retargeting IDs.</small></span><input type="checkbox" data-category="marketing"><i>Optional</i></label>
+  </div><div class="dialog-actions"><button class="button button-quiet" data-close-preferences>Cancel</button><button class="button button-primary" data-save-preferences>Save choices</button></div></dialog>
+</body>
+</html>
